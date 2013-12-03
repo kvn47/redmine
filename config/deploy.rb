@@ -4,7 +4,7 @@ set :branch, 'master'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :deploy_to, '/var/www/my_app'
+set :deploy_to, '/var/www/redmine'
 set :scm, :git
 
 # set :format, :pretty
