@@ -1,0 +1,1 @@
+#!/bin/shcd /Users/v/Projects/Ruby/Redmine && thin -C /usr/local/etc/thin/redmine.yml start
