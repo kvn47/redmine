@@ -8,9 +8,9 @@ set :branch, 'master'
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-role :app, %w{deploy@example.com}
-role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}
+#role :app, %w{deploy@example.com}
+#role :web, %w{deploy@example.com}
+#role :db,  %w{deploy@example.com}
 
 # Extended Server Syntax
 # ======================
@@ -30,13 +30,13 @@ server 'localhost', user: 'v', roles: %w{web app db}
 #    auth_methods: %w(password)
 #  }
 # and/or per server
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
+#server 'localhost',
+#   user: 'v',
+#   roles: %w{web app db},
 #   ssh_options: {
 #     user: 'user_name', # overrides user setting above
 #     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
+#     forward_agent: false#,
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
