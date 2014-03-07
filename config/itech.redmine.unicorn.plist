@@ -8,7 +8,7 @@
 	<string>itech.redmine.unicorn</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/var/www/redmine/current/unicorn_init.sh</string>
+		<string>/Users/v/Projects/Ruby/Redmine/unicorn_init.sh</string>
 		<string>start</string>
 	</array>
 	<key>RunAtLoad</key>
@@ -16,8 +16,8 @@
 	<key>UserName</key>
 	<string>v</string>
 	<key>WorkingDirectory</key>
-	<string>/usr/local/var/www/redmine/current</string>
+	<string>/Users/v/Projects/Ruby/Redmine</string>
 	<key>StandardErrorPath</key>
-	<string>/usr/local/var/www/redmine/current/log/unicorn.log</string>
+	<string>/Users/v/Projects/Ruby/Redmine/log/unicorn.log</string>
 </dict>
 </plist>

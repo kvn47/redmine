@@ -12,10 +12,12 @@ set -e
 
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
-APP_ROOT=/usr/local/var/www/redmine/current
+#APP_ROOT=/usr/local/var/www/redmine/current
+APP_ROOT=/Users/v/Projects/Ruby/Redmine
 PID=$APP_ROOT/tmp/pids/unicorn.pid
-CMD="cd $APP_ROOT; bundle exec unicorn -c $APP_ROOT/config/unicorn.rb -E production -D"
-AS_USER=itech
+#CMD="cd $APP_ROOT; bundle exec unicorn -c $APP_ROOT/config/unicorn.rb -E production -D"
+CMD="cd $APP_ROOT && bundle exec unicorn -c $APP_ROOT/config/unicorn.rb -E production -D"
+AS_USER=v
 set -u
 
 OLD_PIN="$PID.oldbin"
