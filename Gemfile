@@ -10,6 +10,13 @@ group :production do
   gem 'unicorn'
 end
 
+group :development do
+  gem 'capistrano', '~> 3.1'
+  gem 'capistrano-rails'#, '~> 1.1'
+  gem 'capistrano-rvm'#, '~> 0.1'
+  gem 'capistrano-bundler'
+end
+
 # Optional gem for LDAP authentication
 group :ldap do
   gem "net-ldap", "~> 0.3.1"
