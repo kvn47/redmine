@@ -75,7 +75,7 @@ namespace :deploy do
   desc 'Setup'
   task :setup do
     on roles(:all) do
-      #execute "mkdir  #{shared_path}/config/"
+      execute "mkdir -p  #{shared_path}/config/"
       #sudo "mkdir  /usr/local/nginx/conf/sites/"
 
       sudo "ln -sf /var/log/upstart /var/www/log/upstart"
