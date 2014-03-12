@@ -24,7 +24,7 @@ set :log_level, :debug
 set :pty, true
 
 # Default value for :linked_files is []
-#set :linked_files, %w{config/database.yml Procfile}
+set :linked_files, %w{config/database.yml Procfile}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -36,7 +36,7 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 set :keep_releases, 5
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.1.1'
+set :rvm_ruby_version, 'ruby-2.0.0-p451'
 
 set :sockets_path, shared_path.join('tmp/sockets')
 set :pids_path, shared_path.join('tmp/pids')
@@ -89,11 +89,11 @@ namespace :deploy do
       sudo "ln -s #{shared_path}/nginx.conf /usr/local/nginx/conf/nginx.conf"
       sudo 'start nginx'
 
-      within release_path do
-        with rails_env: fetch(:rails_env) do
-          execute :rake, "db:create"
-        end
-      end
+      #within release_path do
+      #  with rails_env: fetch(:rails_env) do
+      #    execute :rake, "db:create"
+      #  end
+      #end
     end
   end
 
@@ -133,7 +133,7 @@ namespace :deploy do
   after :finishing, 'deploy:cleanup'
   after :finishing, 'deploy:restart'
 
-  after :updating, 'deploy:symlink'
+  #after :updating, 'deploy:symlink'
 
   after :setup, 'deploy:foreman_init'
 
