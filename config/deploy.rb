@@ -11,10 +11,10 @@ set :repo_url, 'git@github.com:kvn47/redmine.git'
 # set :deploy_to, '/var/www/my_app'
 
 # Default value for :scm is :git
-# set :scm, :git
+set :scm, :git
 
 # Default value for :format is :pretty
-# set :format, :pretty
+set :format, :pretty
 
 # Default value for :log_level is :debug
 set :log_level, :debug
@@ -23,7 +23,7 @@ set :log_level, :debug
 set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml Procfile}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -34,7 +34,11 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-set :rvm_ruby_version, '2.1.0'
+set :rvm_type, :user
+set :rvm_ruby_version, '2.1.1'
+
+set :sockets_path, shared_path.join('tmp/sockets')
+set :pids_path, shared_path.join('tmp/pids')
 
 namespace :deploy do
 

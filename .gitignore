@@ -43,3 +43,7 @@
 /Gemfile.lock
 /Gemfile.local
 
+/Procfile
+/config/deploy/
+/shared/
+/public/system/
