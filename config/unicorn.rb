@@ -1,4 +1,4 @@
-root = '/var/www/redmine/current'
+root = '/var/www/apps/redmine/current'
 #root = '/Users/v/Projects/Ruby/Redmine'
 worker_processes 4
 working_directory root
