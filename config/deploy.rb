@@ -24,7 +24,7 @@ set :log_level, :debug
 set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml Procfile}
+#set :linked_files, %w{config/database.yml Procfile}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -97,14 +97,13 @@ namespace :deploy do
     end
   end
 
-  #desc 'Create symlink'
-  #task :symlink do
-  #  on roles(:all) do
-  #    execute "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  #    execute "ln -s #{shared_path}/Procfile #{release_path}/Procfile"
-  #    execute "ln -s #{shared_path}/system #{release_path}/public/system"
-  #  end
-  #end
+  desc 'Create symlink'
+  task :symlink do
+    on roles(:all) do
+      execute "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+      execute "ln -s #{shared_path}/Procfile #{release_path}/Procfile"
+    end
+  end
 
   desc 'Foreman init'
   task :foreman_init do
@@ -134,7 +133,7 @@ namespace :deploy do
   after :finishing, 'deploy:cleanup'
   after :finishing, 'deploy:restart'
 
-  #after :updating, 'deploy:symlink'
+  after :updating, 'deploy:symlink'
 
   after :setup, 'deploy:foreman_init'
 

@@ -1,5 +1,5 @@
 set :stage, :production
-set :deploy_to, "var/www/apps/#{fetch(:application)}"
+set :deploy_to, "/var/www/apps/#{fetch(:application)}"
 set :branch, 'master'
 
 # Simple Role Syntax
