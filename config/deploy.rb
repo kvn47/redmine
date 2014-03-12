@@ -75,7 +75,7 @@ namespace :deploy do
   desc 'Setup'
   task :setup do
     on roles(:all) do
-      execute "mkdir  #{shared_path}/config/"
+      #execute "mkdir  #{shared_path}/config/"
       #sudo "mkdir  /usr/local/nginx/conf/sites/"
 
       sudo "ln -sf /var/log/upstart /var/www/log/upstart"
@@ -141,6 +141,7 @@ namespace :deploy do
 
   before :foreman_init, 'rvm:hook'
 
+  before :setup, 'deploy:set_rails_env'
   before :setup, 'deploy:starting'
   before :setup, 'deploy:updating'
   before :setup, 'bundler:install'
