@@ -85,8 +85,8 @@ namespace :deploy do
       upload!('shared/nginx.conf', "#{shared_path}/nginx.conf")
 
       sudo 'stop nginx'
-      sudo "rm -f /usr/local/nginx/conf/nginx.conf"
-      sudo "ln -s #{shared_path}/nginx.conf /usr/local/nginx/conf/nginx.conf"
+      #sudo "rm -f /usr/local/nginx/conf/nginx.conf"
+      sudo "cp #{shared_path}/nginx.conf /usr/local/nginx/conf/sites/#{application}.conf"
       sudo 'start nginx'
 
       #within release_path do
@@ -130,7 +130,7 @@ namespace :deploy do
     end
   end
 
-  after :finishing, 'deploy:cleanup'
+  #after :finishing, 'deploy:cleanup'
   after :finishing, 'deploy:restart'
 
   #after :updating, 'deploy:symlink'
